@@ -1,6 +1,8 @@
-# ![Electron-Suggest](/src/app/img/Electron_Suggest.png)
+# ![Electron Suggest](/src/app/img/Electron_Suggest.png)
 
 Electron Suggest permet d’obtenir des suggestions associées à la recherche sur une requête donnée à partir de  différentes source telles que Google Search, Google Products, Google News, YouTube, Bing, ....
+
+![Electron Suggest Exemple](/src/app/img/Electron_Suggest-exemple.png)
 
 ## Pré-requis
 
