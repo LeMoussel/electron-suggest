@@ -1,21 +1,21 @@
 {
     "name": "electron-suggest",
     "version": "1.0.0",
-    "description": "Electron Suggest",
+    "description": "Electron Suggest permet d’obtenir des suggestions associées à la recherche sur une requête donnée.",
     "main": "src/main.js",
     "keywords": [],
     "author": "LeMoussel",
     "license": "MIT",
     "dependencies": {
-        "echarts": "^5.3.0",
-        "xml-js": "^1.6.11"
+        "echarts": "latest",
+        "xml-js": "latest"
     },
     "devDependencies": {
         "electron": "latest",
         "electron-builder": "latest",
-        "eslint": "^8.10.0",
-        "eslint-config-airbnb-base": "^15.0.0",
-        "eslint-plugin-import": "^2.25.4"
+        "eslint": "latest",
+        "eslint-config-airbnb-base": "latest",
+        "eslint-plugin-import": "latest"
     },
     "scripts": {
         "postinstall": "electron-builder install-app-deps",

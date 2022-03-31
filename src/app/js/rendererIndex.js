@@ -2,8 +2,6 @@
 
 const echarts = window.api.require('../js/echarts.js');
 
-echarts.initSuggestEcharts('echarts');
-
 function sendForm(event) {
     event.target.classList.add('was-validated');
 
@@ -16,7 +14,7 @@ function sendForm(event) {
             document.getElementById('fctSuggest').classList.remove('d-none');
             document.getElementById('echarts').classList.remove('d-none');
 
-            echarts.drawSuggestEcharts(data);
+            echarts.initSuggestEcharts('echarts', data);
         });
 
         document.getElementById('loadingSuggest').classList.remove('d-none');

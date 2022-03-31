@@ -1,30 +1,33 @@
+/* eslint-disable max-len */
 /* eslint-disable no-param-reassign */
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 // https://github.com/apache/echarts
 const echarts = require('echarts');
 
-exports.getDataEcharts = () => {
-    const echartsData = echarts.util.clone(window.suggestEcharts.getOption().series[0].data[0]);
-    return echartsData;
-};
+function numberOfLastChildren(n) {
+    let score = 0;
+    if (n.children.length === 0) return 1;
+    n.children.forEach((c) => {
+        score += numberOfLastChildren(c);
+    });
+    return score;
+}
 
-exports.drawSuggestEcharts = (data) => {
-    data.children.forEach((datum, index) => {
-        if (index % 2 === 0) { datum.collapsed = true; }
+exports.getDataEcharts = () => echarts.util.clone(window.suggestEcharts.getOption().series[0].data[0]);
+
+exports.initSuggestEcharts = (elementById, data) => {
+    const nolc = numberOfLastChildren(data);
+    const labelFontSize = 12;
+
+    data.children.forEach((item, index) => {
+        if (index % 2 === 0) { item.collapsed = true; }
     });
 
-    window.suggestEcharts.setOption({
-        series: [
-            {
-                data: [data],
-            },
-        ],
-    });
-};
-
-exports.initSuggestEcharts = (elementById) => {
+    // https://echarts.apache.org/en/api.html#echarts.init
     window.suggestEcharts = echarts.init(document.getElementById(elementById));
+
+    // https://echarts.apache.org/en/option.html
     window.suggestEcharts.setOption({
         tooltip: {
             trigger: 'item',
@@ -60,6 +63,8 @@ exports.initSuggestEcharts = (elementById) => {
                 expandAndCollapse: true,
                 animationDuration: 550,
                 animationDurationUpdate: 750,
+                height: nolc * (labelFontSize / 2),
+                data: [data],
             },
         ],
     });
