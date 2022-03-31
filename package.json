@@ -1,0 +1,76 @@
+{
+    "name": "electron-suggest",
+    "version": "1.0.0",
+    "description": "Electron Suggest",
+    "main": "src/main.js",
+    "keywords": [],
+    "author": "LeMoussel",
+    "license": "MIT",
+    "dependencies": {
+        "echarts": "^5.3.0",
+        "xml-js": "^1.6.11"
+    },
+    "devDependencies": {
+        "electron": "latest",
+        "electron-builder": "latest",
+        "eslint": "^8.10.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.25.4"
+    },
+    "scripts": {
+        "postinstall": "electron-builder install-app-deps",
+        "package": "electron-builder build --dir",
+        "build": "electron-builder build",
+        "start": ".\\node_modules\\.bin\\electron.cmd src\\main.js",
+
+        "dist:win": "electron-builder -w"
+    },
+    "build": {
+        "productName": "electron-suggest",
+        "appId": "com.electron-suggest.app",
+        "directories": {
+            "output": "release"
+        },
+        "files": [
+            "src/",
+            "node_modules/",
+            "package.json"
+        ],
+        "mac": {
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "artifactName": "${productName}-${version}-${os}.${ext}"
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "zip"
+            ],
+            "artifactName": "${productName}-${version}-${os}.${ext}",
+            "icon": "src/app/img/icon.png"
+        },
+        "linux": {
+            "target": [
+                "AppImage"
+            ],
+            "artifactName": "${productName}-${version}-${os}.${ext}"
+        },
+        "dmg": {
+            "title": "${productName}-${version}",
+            "contents": [
+                {
+                    "x": 300,
+                    "y": 360
+                },
+                {
+                    "x": 490,
+                    "y": 360,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        }
+    }
+}
