@@ -24,7 +24,7 @@ Ces deux commandes devraient imprimer respectivement les versions de Node.js et 
 ## Installation
 
 ```sh
-git clone https://gitlab.com/LeMoussel/electron-suggest.git
+git clone https://github.com/LeMoussel/electron-suggest.git
 cd electron-suggest
 npm install
 npm start
