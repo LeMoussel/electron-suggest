@@ -23,7 +23,8 @@
         "build": "electron-builder build",
         "start": ".\\node_modules\\.bin\\electron.cmd src\\main.js",
 
-        "dist:win": "electron-builder -w"
+        "dist:win": "electron-builder --win",
+        "dist:unx": "electron-builder --linux"
     },
     "build": {
         "productName": "electron-suggest",

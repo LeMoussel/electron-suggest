@@ -1,12 +1,8 @@
-# electron-suggest
+# ![Electron-Suggest](/src/app/img/Electron_Suggest.png)
 
 Electron Suggest permet d’obtenir des suggestions associées à la recherche sur une requête donnée à partir de  différentes source telles que Google Search, Google Products, Google News, YouTube, Bing, ....
 
-***
-
 ## Pré-requis
-
-***
 
  Electron Suggest utilisant Electron, si vous voulez modifier cet applicatif vous devez installer [Node.js](https://nodejs.org/fr/download/).
 
@@ -23,11 +19,7 @@ Ces deux commandes devraient imprimer respectivement les versions de Node.js et 
 
 **Remarque:** Puisque Electron embarque Node.js dans son binaire, la version de Node.js exécutant votre code n'est pas lié à la version en cours d'exécution sur votre système.
 
-***
-
 ## Installation
-
-***
 
 ```sh
 git clone https://gitlab.com/LeMoussel/electron-suggest.git
@@ -36,11 +28,7 @@ npm install
 npm start
 ```
 
-***
-
 ## Packaging et distribution de l'application
-
-***
 
 Pour distribuer cet applicatif, [electron-builder](https://www.electron.build/) est utilisé.
 
