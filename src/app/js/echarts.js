@@ -19,13 +19,20 @@ exports.getDataEcharts = () => echarts.util.clone(window.suggestEcharts.getOptio
 exports.initSuggestEcharts = (elementById, data) => {
     const nolc = numberOfLastChildren(data);
     const labelFontSize = 12;
+    const domEltEcharts = document.getElementById(elementById);
+
+    domEltEcharts.style.cssText = `height: ${nolc * (labelFontSize / 2) + 200}px; width:100%`;
 
     data.children.forEach((item, index) => {
         if (index % 2 === 0) { item.collapsed = true; }
     });
 
+    if (window.suggestEcharts !== undefined) {
+        // https://echarts.apache.org/en/api.html#echartsInstance.dispose
+        window.suggestEcharts.dispose();
+    }
     // https://echarts.apache.org/en/api.html#echarts.init
-    window.suggestEcharts = echarts.init(document.getElementById(elementById));
+    window.suggestEcharts = echarts.init(domEltEcharts);
 
     // https://echarts.apache.org/en/option.html
     window.suggestEcharts.setOption({
@@ -63,7 +70,6 @@ exports.initSuggestEcharts = (elementById, data) => {
                 expandAndCollapse: true,
                 animationDuration: 550,
                 animationDurationUpdate: 750,
-                height: nolc * (labelFontSize / 2),
                 data: [data],
             },
         ],
