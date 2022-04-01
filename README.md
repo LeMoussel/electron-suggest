@@ -27,7 +27,11 @@ Ces deux commandes devraient imprimer respectivement les versions de Node.js et 
 git clone https://github.com/LeMoussel/electron-suggest.git
 cd electron-suggest
 npm install
-npm start
+
+// Execution pour Windows
+npm run start:win
+// Execution pour Linux/Ubuntu
+npm run start:unx
 ```
 
 ## Packaging et distribution de l'application

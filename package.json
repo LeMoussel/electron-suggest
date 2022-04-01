@@ -4,7 +4,7 @@
     "description": "Electron Suggest permet d’obtenir des suggestions associées à la recherche sur une requête donnée.",
     "main": "src/main.js",
     "keywords": [],
-    "author": "LeMoussel",
+    "author": "LeMoussel <cnhx27@gmail.com>",
     "license": "MIT",
     "dependencies": {
         "echarts": "latest",
@@ -21,7 +21,9 @@
         "postinstall": "electron-builder install-app-deps",
         "package": "electron-builder build --dir",
         "build": "electron-builder build",
-        "start": ".\\node_modules\\.bin\\electron.cmd src\\main.js",
+
+        "start:win": ".\\node_modules\\.bin\\electron.cmd src\\main.js",
+        "start:unx": "electron ./src/main.js",
 
         "dist:win": "electron-builder --win",
         "dist:unx": "electron-builder --linux"
@@ -54,7 +56,7 @@
         },
         "linux": {
             "target": [
-                "AppImage"
+                "deb"
             ],
             "artifactName": "${productName}-${version}-${os}.${ext}"
         },
