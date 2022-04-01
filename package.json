@@ -1,0 +1,79 @@
+{
+    "name": "electron-suggest",
+    "version": "1.0.0",
+    "description": "Electron Suggest permet d’obtenir des suggestions associées à la recherche sur une requête donnée.",
+    "main": "src/main.js",
+    "keywords": [],
+    "author": "LeMoussel <cnhx27@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "echarts": "latest",
+        "xml-js": "latest"
+    },
+    "devDependencies": {
+        "electron": "latest",
+        "electron-builder": "latest",
+        "eslint": "latest",
+        "eslint-config-airbnb-base": "latest",
+        "eslint-plugin-import": "latest"
+    },
+    "scripts": {
+        "postinstall": "electron-builder install-app-deps",
+        "package": "electron-builder build --dir",
+        "build": "electron-builder build",
+
+        "start:win": ".\\node_modules\\.bin\\electron.cmd src\\main.js",
+        "start:unx": "electron ./src/main.js",
+
+        "dist:win": "electron-builder --win",
+        "dist:unx": "electron-builder --linux"
+    },
+    "build": {
+        "productName": "electron-suggest",
+        "appId": "com.electron-suggest.app",
+        "directories": {
+            "output": "release"
+        },
+        "files": [
+            "src/",
+            "node_modules/",
+            "package.json"
+        ],
+        "mac": {
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "artifactName": "${productName}-${version}-${os}.${ext}"
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "zip"
+            ],
+            "artifactName": "${productName}-${version}-${os}.${ext}",
+            "icon": "src/app/img/icon.png"
+        },
+        "linux": {
+            "target": [
+                "deb"
+            ],
+            "artifactName": "${productName}-${version}-${os}.${ext}"
+        },
+        "dmg": {
+            "title": "${productName}-${version}",
+            "contents": [
+                {
+                    "x": 300,
+                    "y": 360
+                },
+                {
+                    "x": 490,
+                    "y": 360,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        }
+    }
+}
