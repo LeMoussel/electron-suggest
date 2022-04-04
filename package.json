@@ -56,7 +56,7 @@
         },
         "linux": {
             "target": [
-                "deb"
+                "zip"
             ],
             "artifactName": "${productName}-${version}-${os}.${ext}"
         },
